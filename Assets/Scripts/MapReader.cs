@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MapReader : MonoBehaviour
 {
+    public GameManager gm;
     public string fileName;
     public BeetKeyframe[] keyframes;
 
@@ -16,6 +17,7 @@ public class MapReader : MonoBehaviour
         string[] keyframes = System.IO.File.ReadAllLines(@path);
         composer.songBpm = float.Parse(keyframes[0]);
         ParseKeyframes(keyframes);
+        gm.MapReady();
     }
 
     private void ParseKeyframes(string[] keyframes)
@@ -35,7 +37,6 @@ public class MapReader : MonoBehaviour
                 frame.type = int.Parse(keyframe[1]) == 0 ? KeyframeType.Farm : KeyframeType.Cutting;
                 frame.val  = int.Parse(keyframe[2]);
                 readFrames.Add(frame);
-                Debug.Log(frame.ToString());
             }
         }
 

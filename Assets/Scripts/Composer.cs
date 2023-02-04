@@ -5,6 +5,7 @@ using UnityEngine;
 // https://www.gamedeveloper.com/audio/coding-to-the-beat---under-the-hood-of-a-rhythm-game-in-unity
 public class Composer : MonoBehaviour
 {
+    public GameManager gm;
     public NoteSpawner noteSpawner;
     public float songBpm;
     public float secPerBeat;
@@ -13,7 +14,7 @@ public class Composer : MonoBehaviour
     public float dspSongTime;
     public AudioSource musicSource;
     public float firstBeatOffset;
-    public float waitTime;
+    public float waitBeats;
 
     private bool hasStarted;
 
@@ -27,15 +28,14 @@ public class Composer : MonoBehaviour
 
         //Record the time when the music starts
         dspSongTime = (float)AudioSettings.dspTime;
-        Invoke("Init", waitTime);
+
+        gm.ComposerReady();
     }
 
-    private void Init()
+    public void Init()
     {
         //Start the music
         musicSource.Play();
-
-        StartNotes();
 
         hasStarted = true;
     }
@@ -49,14 +49,6 @@ public class Composer : MonoBehaviour
 
             //determine how many beats since the song started
             songPositionInBeats = songPosition / secPerBeat;
-        }
-    }
-
-    private void StartNotes()
-    {
-        foreach (NoteBehavior note in noteSpawner.notes)
-        {
-            note.isMoving = true;
         }
     }
 }
