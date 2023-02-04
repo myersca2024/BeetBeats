@@ -6,18 +6,20 @@ public class NoteSpawner : MonoBehaviour
 {
     public Composer composer;
     public MapReader map;
+    public float noteSpeed;
     public Transform lane1;
     public Transform lane2;
     public Transform lane3;
+    public Transform judgmentBar;
     public NoteBehavior quarterNote;
     public NoteBehavior eighthNote;
     public NoteBehavior sixteenthNote;
+    public List<NoteBehavior> notes = new List<NoteBehavior>();
 
     private int keyframeIndex = 0;
     private float beatSetter = 0f;
-    private List<NoteBehavior> notes = new List<NoteBehavior>();
 
-    private void Awake()
+    private void Start()
     {
         SpawnNotes();
     }
@@ -45,18 +47,29 @@ public class NoteSpawner : MonoBehaviour
 
     private void SpawnNoteInLane(NoteBehavior note, int lane)
     {
-        Vector3 offset = new Vector3(5 * beatSetter, 0f, 0f);
+        float offset = beatSetter * noteSpeed;
+        NoteBehavior nb;
+        Vector3 newPos;
 
         switch (lane)
         {
             case 0:
-                notes.Add(Instantiate(note, lane1.position + offset, lane1.rotation));
+                newPos = new Vector3(judgmentBar.position.x + offset, lane1.position.y);
+                nb = Instantiate(note, newPos, lane1.rotation);
+                nb.speed = noteSpeed;
+                notes.Add(nb);
                 break;
             case 1:
-                notes.Add(Instantiate(note, lane2.position + offset, lane2.rotation));
+                newPos = new Vector3(judgmentBar.position.x + offset, lane2.position.y);
+                nb = Instantiate(note, newPos, lane2.rotation);
+                nb.speed = noteSpeed;
+                notes.Add(nb);
                 break;
             case 2:
-                notes.Add(Instantiate(note, lane3.position + offset, lane3.rotation));
+                newPos = new Vector3(judgmentBar.position.x + offset, lane3.position.y);
+                nb = Instantiate(note, newPos, lane3.rotation);
+                nb.speed = noteSpeed;
+                notes.Add(nb);
                 break;
         }
     }
