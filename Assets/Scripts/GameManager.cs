@@ -4,18 +4,40 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    public Composer composer;
+    public NoteSpawner noteSpawner;
+    public Countdown countdown;
     public int score = 0;
     public int missAmount = -1;
     public int tooEarlyAmount = 1;
     public int tooLateAmount = 1;
     public int perfectAmount = 2;
 
+    private bool mapIsReady;
+    private bool composerIsReady;
+    private bool noteSpawnerIsReady;
+    private bool gameStarted;
+
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
+    }
+
+    private void Update()
+    {
+        if (!gameStarted && mapIsReady && composerIsReady && noteSpawnerIsReady)
+        {
+            StartGame();
+        }
+    }
+
+    private void StartGame()
+    {
+        countdown.StartCountdown();
+        noteSpawner.MoveNotes();
+        gameStarted = true;
     }
 
     public void Miss()
@@ -44,5 +66,20 @@ public class GameManager : MonoBehaviour
         score += perfectAmount;
         //Do UI 
         Debug.Log("Perfect");
+    }
+
+    public void ComposerReady()
+    {
+        composerIsReady = true;
+    }
+
+    public void MapReady()
+    {
+        mapIsReady = true;
+    }
+
+    public void NotesReady()
+    {
+        noteSpawnerIsReady = true;
     }
 }

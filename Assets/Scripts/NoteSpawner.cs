@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NoteSpawner : MonoBehaviour
 {
+    public GameManager gm;
     public Composer composer;
     public MapReader map;
     public float noteSpeed;
@@ -22,6 +23,15 @@ public class NoteSpawner : MonoBehaviour
     private void Start()
     {
         SpawnNotes();
+        gm.NotesReady();
+    }
+
+    public void MoveNotes()
+    {
+        foreach (NoteBehavior note in notes)
+        {
+            note.isMoving = true;
+        }
     }
     
     private void SpawnNotes()
@@ -29,7 +39,7 @@ public class NoteSpawner : MonoBehaviour
         foreach (BeetKeyframe keyframe in map.keyframes)
         {
             float dec = keyframe.beat - Mathf.Floor(keyframe.beat);
-            beatSetter = keyframe.beat;
+            beatSetter = keyframe.beat + composer.waitBeats;
             switch (dec)
             {
                 case 0f:
@@ -47,7 +57,7 @@ public class NoteSpawner : MonoBehaviour
 
     private void SpawnNoteInLane(NoteBehavior note, int lane)
     {
-        float offset = beatSetter * noteSpeed * (60 / composer.songBpm);
+        float offset = beatSetter * noteSpeed * (60 / composer.songBpm) + composer.firstBeatOffset * noteSpeed;
         NoteBehavior nb;
         Vector3 newPos;
 

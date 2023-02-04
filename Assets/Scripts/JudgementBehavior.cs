@@ -7,15 +7,10 @@ public class JudgementBehavior : MonoBehaviour
 
     public float perfectThreshold = .1f;
     public KeyCode laneInput;
-    public GameManager gameManager;
+    public GameManager gm;
 
     public bool noteInZone = false;
     private GameObject currNote;
-
-    private void Start()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -45,21 +40,21 @@ public class JudgementBehavior : MonoBehaviour
                 float distance = this.transform.position.x - currNote.transform.position.x;
                 if (Mathf.Abs(distance) <= perfectThreshold)
                 {
-                    gameManager.Perfect();
+                    gm.Perfect();
                 }
                 else if(distance < perfectThreshold)
                 {
-                    gameManager.TooEarly();
+                    gm.TooEarly();
                 }
                 else if(distance > perfectThreshold)
                 {
-                    gameManager.TooLate();
+                    gm.TooLate();
                 }
                 currNote.SetActive(false);
             }
             else
             {
-                gameManager.Miss();
+                gm.Miss();
             }
         }
     }
