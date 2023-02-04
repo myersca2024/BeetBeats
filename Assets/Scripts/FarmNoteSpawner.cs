@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoteSpawner : MonoBehaviour
+public class FarmNoteSpawner : MonoBehaviour, INoteSpawner
 {
     public GameManager gm;
     public Composer composer;
@@ -17,13 +17,18 @@ public class NoteSpawner : MonoBehaviour
     public NoteBehavior sixteenthNote;
     public List<NoteBehavior> notes = new List<NoteBehavior>();
 
-    private int keyframeIndex = 0;
     private float beatSetter = 0f;
 
     private void Start()
     {
+        AssignSpawner();
         SpawnNotes();
         gm.NotesReady();
+    }
+
+    public void AssignSpawner()
+    {
+        gm.noteSpawner = this;
     }
 
     public void MoveNotes()
@@ -34,7 +39,7 @@ public class NoteSpawner : MonoBehaviour
         }
     }
     
-    private void SpawnNotes()
+    public void SpawnNotes()
     {
         foreach (BeetKeyframe keyframe in map.keyframes)
         {

@@ -6,7 +6,6 @@ using UnityEngine;
 public class Composer : MonoBehaviour
 {
     public GameManager gm;
-    public NoteSpawner noteSpawner;
     public float songBpm;
     public float secPerBeat;
     public float songPosition;

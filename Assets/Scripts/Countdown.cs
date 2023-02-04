@@ -71,10 +71,10 @@ public class Countdown : MonoBehaviour
 
     public void StartCountdown()
     {
-        beat0 = 0f;
-        beat1 = composer.secPerBeat;
-        beat2 = 2f * composer.secPerBeat;
-        beat3 = 3f * composer.secPerBeat;
+        beat0 = 4f * composer.secPerBeat;
+        beat1 = 5f * composer.secPerBeat;
+        beat2 = 6f * composer.secPerBeat;
+        beat3 = 7f * composer.secPerBeat;
         lastBeat = beat3 + 0.5f;
         countdownStarted = true;
     }

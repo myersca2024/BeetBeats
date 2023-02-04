@@ -84,15 +84,15 @@ public class JudgementBehavior : MonoBehaviour
             float distance = this.transform.position.x - currNote.transform.position.x;
             if (Mathf.Abs(distance) <= perfectThreshold)
             {
-                gameManager.Perfect();
+                gm.Perfect();
             }
             else if (distance < perfectThreshold)
             {
-                gameManager.TooEarly();
+                gm.TooEarly();
             }
             else if (distance > perfectThreshold)
             {
-                gameManager.TooLate();
+                gm.TooLate();
             }
             currNote.SetActive(false);
         }

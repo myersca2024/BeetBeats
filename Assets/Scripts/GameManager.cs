@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Composer composer;
-    public NoteSpawner noteSpawner;
+    public INoteSpawner noteSpawner;
     public Countdown countdown;
     public int score = 0;
     public int missAmount = -1;
