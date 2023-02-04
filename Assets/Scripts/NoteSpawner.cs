@@ -47,7 +47,7 @@ public class NoteSpawner : MonoBehaviour
 
     private void SpawnNoteInLane(NoteBehavior note, int lane)
     {
-        float offset = beatSetter * noteSpeed;
+        float offset = beatSetter * noteSpeed * (60 / composer.songBpm);
         NoteBehavior nb;
         Vector3 newPos;
 

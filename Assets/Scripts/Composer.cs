@@ -21,17 +21,17 @@ public class Composer : MonoBehaviour
     {
         //Load the AudioSource attached to the Conductor GameObject
         musicSource = GetComponent<AudioSource>();
-        Invoke("Init", waitTime);
-    }
 
-    private void Init()
-    {
         //Calculate the number of seconds in each beat
         secPerBeat = 60f / songBpm;
 
         //Record the time when the music starts
         dspSongTime = (float)AudioSettings.dspTime;
+        Invoke("Init", waitTime);
+    }
 
+    private void Init()
+    {
         //Start the music
         musicSource.Play();
 
