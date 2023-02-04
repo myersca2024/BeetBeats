@@ -26,11 +26,6 @@ public class JudgementBehavior : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("collided");
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Note"))
@@ -52,11 +47,11 @@ public class JudgementBehavior : MonoBehaviour
                 {
                     gameManager.Perfect();
                 }
-                else if(distance > perfectThreshold)
+                else if(distance < perfectThreshold)
                 {
                     gameManager.TooEarly();
                 }
-                else if(distance < perfectThreshold)
+                else if(distance > perfectThreshold)
                 {
                     gameManager.TooLate();
                 }

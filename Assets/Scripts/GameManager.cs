@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public void Miss()
     {
         score += missAmount;
+        Debug.Log("Miss");
         //Do UI stuff here
     }
 
@@ -28,17 +29,20 @@ public class GameManager : MonoBehaviour
     {
         score += tooEarlyAmount;
         //Do UI stuff here
+        Debug.Log("Too Early");
     }
 
     public void TooLate()
     {
         score += tooLateAmount;
         //Do UI stuff
+        Debug.Log("Too Late");
     }
 
     public void Perfect()
     {
         score += perfectAmount;
         //Do UI 
+        Debug.Log("Perfect");
     }
 }
