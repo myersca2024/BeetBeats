@@ -29,12 +29,12 @@ public class PotBarMovement : MonoBehaviour
             transform.position = Quaternion.Euler(new Vector3(0, 0, speed * Time.deltaTime)) *
                 (transform.position - potCenter.transform.position) + potCenter.transform.position;
 
-            if (targetIsTop && transform.position.y > 3.9f)
+            if (targetIsTop && transform.position.y > pns.radius - 0.1f)
             {
                 targetIsTop = false;
                 pns.SpawnNextMeasure();
             }
-            else if (!targetIsTop && transform.position.y < -3.9f)
+            else if (!targetIsTop && transform.position.y < -pns.radius + 0.1f)
             {
                 targetIsTop = true;
                 pns.SpawnNextMeasure();

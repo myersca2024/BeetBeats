@@ -14,8 +14,7 @@ public class Composer : MonoBehaviour
     public AudioSource musicSource;
     public float firstBeatOffset;
     public float waitBeats;
-
-    private bool hasStarted;
+    public bool hasStarted;
 
     void Start()
     {
