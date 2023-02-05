@@ -13,6 +13,8 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
     public float measuresPerRevolution;
 
     private NoteBehavior[][] notesByMeasure;
+    private int numMeasures;
+    private int currentActiveMeasure;
 
     void Start()
     {
@@ -23,7 +25,7 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
 
     void Update()
     {
-        
+
     }
 
     public void AssignSpawner()
@@ -40,6 +42,7 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
     {
         float approxMeasures = (mapReader.keyframes[mapReader.keyframes.Length - 1].beat + 1) / 4;
         int numMeasures = Mathf.Floor(approxMeasures) == approxMeasures ? Mathf.FloorToInt(approxMeasures) : Mathf.FloorToInt(approxMeasures) + 1;
+        this.numMeasures = numMeasures;
         notesByMeasure = new NoteBehavior[numMeasures][];
         for (int i = 0; i < numMeasures; i++)
         {
@@ -61,6 +64,7 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
             measureIndex++;
         }
 
+        /*
         foreach (NoteBehavior note in notesByMeasure[0])
         {
             if (note != null) { note.gameObject.SetActive(true); }
@@ -69,5 +73,15 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
         {
             if (note != null) { note.gameObject.SetActive(true); }
         }
+        */
+    }
+
+    public void SpawnNextMeasure()
+    {
+        foreach (NoteBehavior note in notesByMeasure[currentActiveMeasure])
+        {
+            if (note != null) { note.gameObject.SetActive(true); }
+        }
+        currentActiveMeasure = Mathf.Clamp(currentActiveMeasure + 1, 0, numMeasures - 1);
     }
 }
