@@ -15,6 +15,19 @@ public class ChoppingNoteSpawner : MonoBehaviour, INoteSpawner
     public NoteBehavior peelBeginNote;
     public NoteBehavior peelEndNote;
     public List<NoteBehavior> notes = new List<NoteBehavior>();
+    public VegetableBehavior vegBehavior;
+
+    public List<GameObject> vegetables; 
+
+    public GameObject carrotUnpeeled;
+    public GameObject carrotPeeled;
+    public GameObject daikonUnpeeled;
+    public GameObject daikonPeeled;
+    public GameObject onionUnpeeled;
+    public GameObject onionPeeled;
+    public GameObject taroUnpeeled;
+    public GameObject taroPeeled;
+
 
     private float beatSetter = 0f;
 
@@ -41,6 +54,8 @@ public class ChoppingNoteSpawner : MonoBehaviour, INoteSpawner
             switch (keyframe.val)
             {
                 case 0: //carrot
+                    vegetables.Add(carrotUnpeeled);
+                    vegetables.Add(carrotPeeled);
                     SpawnNoteInLane(chopNote, 0); //quarter note
                     beatSetter = keyframe.beat + 1 + composer.waitBeats;
                     SpawnNoteInLane(peelBeginNote, 1); //dotted half
@@ -60,6 +75,8 @@ public class ChoppingNoteSpawner : MonoBehaviour, INoteSpawner
                     SpawnNoteInLane(chopNote, 0); //eighth
                     break;
                 case 1: //daikon
+                    vegetables.Add(daikonUnpeeled);
+                    vegetables.Add(daikonPeeled);
                     SpawnNoteInLane(chopNote, 0); //quarter
                     beatSetter = keyframe.beat + 1 + composer.waitBeats;
                     SpawnNoteInLane(peelBeginNote, 1); //dotted half
@@ -71,6 +88,8 @@ public class ChoppingNoteSpawner : MonoBehaviour, INoteSpawner
                     SpawnNoteInLane(chopNote, 0); // Half
                     break;
                 case 2: //onion
+                    vegetables.Add(onionUnpeeled);
+                    vegetables.Add(onionPeeled);
                     SpawnNoteInLane(peelBeginNote, 1); // Whole
                     beatSetter = keyframe.beat + 3 + composer.waitBeats;
                     SpawnNoteInLane(peelEndNote, 1);
@@ -92,6 +111,8 @@ public class ChoppingNoteSpawner : MonoBehaviour, INoteSpawner
                     SpawnNoteInLane(chopNote, 0); //quarter
                     break;
                 case 3: //taro
+                    vegetables.Add(taroUnpeeled);
+                    vegetables.Add(taroPeeled);
                     SpawnNoteInLane(peelBeginNote, 1); // Whole
                     beatSetter = keyframe.beat + 3 + composer.waitBeats;
                     SpawnNoteInLane(peelEndNote, 1);
@@ -116,6 +137,7 @@ public class ChoppingNoteSpawner : MonoBehaviour, INoteSpawner
     {
         AssignSpawner();
         SpawnNotes();
+        vegBehavior.gameObject.SetActive(true);
         gm.NotesReady();
     }
 

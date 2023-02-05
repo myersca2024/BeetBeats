@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 358895843331632794}
   - component: {fileID: 358895843331632799}
   m_Layer: 0
-  m_Name: HoldBegin
+  m_Name: ChopNote
   m_TagString: HoldNoteStart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
