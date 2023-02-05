@@ -3,7 +3,14 @@ guid: dc65aa6194353f54a8e81cd7f3d1f7dd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - composer: {instanceID: 0}
+  - countdown: {instanceID: 0}
+  - ratingSpawner: {instanceID: 0}
+  - perfectUI: {instanceID: 0}
+  - lateUI: {instanceID: 0}
+  - earlyUI: {fileID: 3292758290014495350, guid: 47d94ddb584b3154fbcb24c0d26d8852, type: 3}
+  - missUI: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

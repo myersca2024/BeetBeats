@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     public int perfectAmount = 2;
     public bool gameStarted;
 
+    public GameObject ratingSpawner;
+    public GameObject perfectUI;
+    public GameObject lateUI;
+    public GameObject earlyUI;
+    public GameObject missUI;
+
     private bool mapIsReady;
     private bool composerIsReady;
     private bool noteSpawnerIsReady;
@@ -44,28 +50,28 @@ public class GameManager : MonoBehaviour
     {
         score += missAmount;
         Debug.Log("Miss");
-        //Do UI stuff here
+        Instantiate(missUI, ratingSpawner.transform);
     }
 
     public void TooEarly()
     {
         score += tooEarlyAmount;
         //Do UI stuff here
-        Debug.Log("Too Early");
+        Instantiate(earlyUI, ratingSpawner.transform);
     }
 
     public void TooLate()
     {
         score += tooLateAmount;
         //Do UI stuff
-        Debug.Log("Too Late");
+        Instantiate(lateUI, ratingSpawner.transform);
     }
 
     public void Perfect()
     {
         score += perfectAmount;
         //Do UI 
-        Debug.Log("Perfect");
+        Instantiate(perfectUI, ratingSpawner.transform);
     }
 
     public void ComposerReady()
