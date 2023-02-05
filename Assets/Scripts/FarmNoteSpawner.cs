@@ -15,6 +15,7 @@ public class FarmNoteSpawner : MonoBehaviour, INoteSpawner
     public NoteBehavior quarterNote;
     public NoteBehavior eighthNote;
     public NoteBehavior sixteenthNote;
+    public Transform backpackTarget;
     public List<NoteBehavior> notes = new List<NoteBehavior>();
 
     private float beatSetter = 0f;
@@ -62,7 +63,7 @@ public class FarmNoteSpawner : MonoBehaviour, INoteSpawner
 
     private void SpawnNoteInLane(NoteBehavior note, int lane)
     {
-        float offset = beatSetter * noteSpeed * (60 / composer.songBpm) + composer.firstBeatOffset * noteSpeed;
+        float offset = beatSetter * noteSpeed * (60 / composer.songBpm) - composer.firstBeatOffset * noteSpeed;
         NoteBehavior nb;
         Vector3 newPos;
 
@@ -72,18 +73,21 @@ public class FarmNoteSpawner : MonoBehaviour, INoteSpawner
                 newPos = new Vector3(judgmentBar.position.x + offset, lane1.position.y);
                 nb = Instantiate(note, newPos, lane1.rotation);
                 nb.speed = noteSpeed;
+                nb.backpackTarget = backpackTarget;
                 notes.Add(nb);
                 break;
             case 1:
                 newPos = new Vector3(judgmentBar.position.x + offset, lane2.position.y);
                 nb = Instantiate(note, newPos, lane2.rotation);
                 nb.speed = noteSpeed;
+                nb.backpackTarget = backpackTarget;
                 notes.Add(nb);
                 break;
             case 2:
                 newPos = new Vector3(judgmentBar.position.x + offset, lane3.position.y);
                 nb = Instantiate(note, newPos, lane3.rotation);
                 nb.speed = noteSpeed;
+                nb.backpackTarget = backpackTarget;
                 notes.Add(nb);
                 break;
         }
