@@ -72,7 +72,7 @@ public class JudgementBehavior : MonoBehaviour
                 {
                     gm.TooLate();
                 }
-                currNote.SetActive(false);
+                currNote.GetComponent<NoteBehavior>().HitNote();
             }
             else
             {
@@ -94,7 +94,7 @@ public class JudgementBehavior : MonoBehaviour
             {
                 gm.TooLate();
             }
-            currNote.SetActive(false);
+            currNote.GetComponent<NoteBehavior>().HitNote();
         }
     }
 }

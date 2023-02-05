@@ -23,11 +23,6 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
         gm.NotesReady();
     }
 
-    void Update()
-    {
-
-    }
-
     public void AssignSpawner()
     {
         gm.noteSpawner = this;
@@ -63,17 +58,6 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
             newNote.gameObject.SetActive(false);
             measureIndex++;
         }
-
-        /*
-        foreach (NoteBehavior note in notesByMeasure[0])
-        {
-            if (note != null) { note.gameObject.SetActive(true); }
-        }
-        foreach (NoteBehavior note in notesByMeasure[1])
-        {
-            if (note != null) { note.gameObject.SetActive(true); }
-        }
-        */
     }
 
     public void SpawnNextMeasure()
