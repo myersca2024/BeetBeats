@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour
     public int tooEarlyAmount = 1;
     public int tooLateAmount = 1;
     public int perfectAmount = 2;
+    public bool gameStarted;
 
     private bool mapIsReady;
     private bool composerIsReady;
     private bool noteSpawnerIsReady;
-    private bool gameStarted;
 
 
     // Start is called before the first frame update
