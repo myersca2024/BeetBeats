@@ -15,6 +15,7 @@ public class FarmNoteSpawner : MonoBehaviour, INoteSpawner
     public NoteBehavior quarterNote;
     public NoteBehavior eighthNote;
     public NoteBehavior sixteenthNote;
+    public NoteBehavior otherNote;
     public Transform backpackTarget;
     public List<NoteBehavior> notes = new List<NoteBehavior>();
 
@@ -56,6 +57,9 @@ public class FarmNoteSpawner : MonoBehaviour, INoteSpawner
                     break;
                 case 0.25f:
                     SpawnNoteInLane(sixteenthNote, keyframe.val);
+                    break;
+                default:
+                    SpawnNoteInLane(otherNote, keyframe.val);
                     break;
             }
         }
