@@ -8,6 +8,9 @@ public class VegetableBehavior : MonoBehaviour
     public ChoppingNoteSpawner noteSpawner;
     public GameManager gameManager;
     public Composer composer;
+    public GameObject player;
+    public GameObject startX;
+    public GameObject endX;
 
     private List<GameObject> veggies;
     private GameObject currVeg;
@@ -18,6 +21,11 @@ public class VegetableBehavior : MonoBehaviour
 
     public int vegIndex = 0;
 
+    public float distance;
+    public float speed;
+    private Vector3 playerStart;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +33,10 @@ public class VegetableBehavior : MonoBehaviour
         currVeg = Instantiate(veggies[0], posCurrentVeg.transform.position, posCurrentVeg.transform.rotation);
         currVeg.gameObject.SetActive(true);
         nextVeg = Instantiate(veggies[2], posOnDeck.transform.position, posOnDeck.transform.rotation);
+       // distance = endX.transform.position.x - startX.transform.position.x;
+        speed = distance / (8f * (1f / (composer.songBpm / 60f)));
+        speed *= Time.deltaTime;
+        playerStart = player.transform.position;
     }
 
     // Update is called once per frame
@@ -32,6 +44,7 @@ public class VegetableBehavior : MonoBehaviour
     {
         if (composer.songPositionInBeats != 0f)
         {
+            player.transform.position += new Vector3(speed, 0, 0);
             float currentVeg = Mathf.Floor((Mathf.Floor(composer.songPositionInBeats) - 9f) / 4f);
            // Debug.Log("Current Veg: " + currentVeg + "\nVeg Index : " + vegIndex);
             if (currentVeg > vegIndex)
@@ -42,6 +55,7 @@ public class VegetableBehavior : MonoBehaviour
                 {
                     Debug.Log("Next veg!");
                     //new veg moves in
+                    player.transform.position = playerStart;
                     currVeg.gameObject.SetActive(false);
                     vegIndex += 1;
                     nextVeg.transform.position = posCurrentVeg.transform.position;
@@ -54,6 +68,7 @@ public class VegetableBehavior : MonoBehaviour
                 else
                 {
                     Debug.Log("Peeled!");
+                    player.transform.position = playerStart;
                     currVeg.gameObject.SetActive(false);
                     vegIndex += 1;
                     if (vegIndex <= veggies.Count - 1)
