@@ -15,6 +15,7 @@ public class Composer : MonoBehaviour
     public float firstBeatOffset;
     public float waitBeats;
     public bool hasStarted;
+    public GameObject finish;
 
     void Start()
     {
@@ -47,6 +48,11 @@ public class Composer : MonoBehaviour
 
             //determine how many beats since the song started
             songPositionInBeats = songPosition / secPerBeat;
+
+            if (!musicSource.isPlaying)
+            {
+                finish.SetActive(true);
+            }
         }
     }
 }
