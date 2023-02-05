@@ -46,7 +46,8 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
 
         int lastRecordedMeasure = 0;
         int measureIndex = 0;
-        foreach (BeetKeyframe keyframe in mapReader.keyframes) {
+        foreach (BeetKeyframe keyframe in mapReader.keyframes)
+        {
             int index = Mathf.FloorToInt(keyframe.beat / 4);
             if (lastRecordedMeasure != index) { measureIndex = 0; }
             lastRecordedMeasure = index;
@@ -65,6 +66,14 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
         foreach (NoteBehavior note in notesByMeasure[currentActiveMeasure])
         {
             if (note != null) { note.gameObject.SetActive(true); }
+        }
+
+        if (currentActiveMeasure - 2 >= 0)
+        {
+            foreach (NoteBehavior note in notesByMeasure[currentActiveMeasure - 2])
+            {
+                if (note != null) { note.gameObject.SetActive(false); }
+            }
         }
         currentActiveMeasure = Mathf.Clamp(currentActiveMeasure + 1, 0, numMeasures - 1);
     }
