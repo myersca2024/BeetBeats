@@ -23,20 +23,20 @@ public class ChoppingBeetAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             playerSprite.sprite = knifeDown;
         }
 
-        if (Input.GetKeyUp(KeyCode.G))
+        if (Input.GetKeyUp(KeyCode.H))
         {
             playerSprite.sprite = knifeUp;
         }
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             playerSprite.sprite = peelDown;
         }
-        if (Input.GetKeyUp(KeyCode.H))
+        if (Input.GetKeyUp(KeyCode.G))
         {
             playerSprite.sprite = peelUp;
         }
