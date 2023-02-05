@@ -123,6 +123,42 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &131520423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 131520424}
+  m_Layer: 5
+  m_Name: RatingSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &131520424
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131520423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1363569043}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 697, y: 355}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &551297171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 995003326671206351, guid: 16cf524b171fd5246b9813742688b15b, type: 3}
@@ -138,6 +174,10 @@ PrefabInstance:
     - target: {fileID: 5296660994480260386, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
       propertyPath: m_Name
       value: PeelJudge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296660994480260389, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5296660994480260389, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
       propertyPath: m_SpriteSortPoint
@@ -195,6 +235,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1929798101}
+    - target: {fileID: 5296660994480260391, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
+      propertyPath: laneInput
+      value: 104
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
 --- !u!4 &716057650 stripped
@@ -222,6 +266,10 @@ PrefabInstance:
     - target: {fileID: 5296660994480260386, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
       propertyPath: m_Name
       value: KnifeJudge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296660994480260389, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5296660994480260389, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
       propertyPath: m_SpriteSortPoint
@@ -279,6 +327,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1929798101}
+    - target: {fileID: 5296660994480260391, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
+      propertyPath: laneInput
+      value: 103
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
 --- !u!1 &960533317 stripped
@@ -606,6 +658,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 868818462}
+  - {fileID: 131520424}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -932,6 +985,12 @@ MonoBehaviour:
   tooEarlyAmount: 1
   tooLateAmount: 1
   perfectAmount: 2
+  gameStarted: 0
+  ratingSpawner: {fileID: 131520423}
+  perfectUI: {fileID: 1868498929596932842, guid: df85eeb953611e141b86e2e64746e718, type: 3}
+  lateUI: {fileID: 7360912411261393996, guid: ff6e4da741baa9741b5031479cc46adc, type: 3}
+  earlyUI: {fileID: 3292758290014495350, guid: 47d94ddb584b3154fbcb24c0d26d8852, type: 3}
+  missUI: {fileID: 2600706586651866847, guid: b31e02fb297f87845812abb413aa66f5, type: 3}
 --- !u!4 &1929798102
 Transform:
   m_ObjectHideFlags: 0
