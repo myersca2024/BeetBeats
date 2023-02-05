@@ -907,7 +907,7 @@ MonoBehaviour:
   dspSongTime: 0
   musicSource: {fileID: 1046337211}
   firstBeatOffset: 0.089
-  waitBeats: 8
+  waitBeats: 6
   hasStarted: 0
   finish: {fileID: 818626570}
 --- !u!4 &1046337213
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 1929798101}
-  fileName: ChopMap.txt
+  fileName: ChopMapOfficial.txt
 --- !u!1 &1275896262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,6 +1568,10 @@ PrefabInstance:
     - target: {fileID: 7033172929717006103, guid: 6b5a62ee936d58640b937c48d43c1fa9, type: 3}
       propertyPath: m_Name
       value: Feenish
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033172930346359154, guid: 6b5a62ee936d58640b937c48d43c1fa9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Pot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b5a62ee936d58640b937c48d43c1fa9, type: 3}

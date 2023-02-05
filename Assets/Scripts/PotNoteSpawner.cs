@@ -63,18 +63,21 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
 
     public void SpawnNextMeasure()
     {
-        foreach (NoteBehavior note in notesByMeasure[currentActiveMeasure])
+        if (currentActiveMeasure < numMeasures - 1)
         {
-            if (note != null) { note.gameObject.SetActive(true); }
-        }
-
-        if (currentActiveMeasure - 2 >= 0)
-        {
-            foreach (NoteBehavior note in notesByMeasure[currentActiveMeasure - 2])
+            foreach (NoteBehavior note in notesByMeasure[currentActiveMeasure])
             {
-                if (note != null) { note.gameObject.SetActive(false); }
+                if (note != null) { note.gameObject.SetActive(true); }
             }
+
+            if (currentActiveMeasure - 2 >= 0)
+            {
+                foreach (NoteBehavior note in notesByMeasure[currentActiveMeasure - 2])
+                {
+                    if (note != null) { note.gameObject.SetActive(false); }
+                }
+            }
+            currentActiveMeasure = Mathf.Clamp(currentActiveMeasure + 1, 0, numMeasures - 1);
         }
-        currentActiveMeasure = Mathf.Clamp(currentActiveMeasure + 1, 0, numMeasures - 1);
     }
 }

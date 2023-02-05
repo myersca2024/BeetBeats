@@ -34,8 +34,8 @@ public class VegetableBehavior : MonoBehaviour
         currVeg.gameObject.SetActive(true);
         nextVeg = Instantiate(veggies[2], posOnDeck.transform.position, posOnDeck.transform.rotation);
        // distance = endX.transform.position.x - startX.transform.position.x;
-        speed = distance / (8f * (1f / (composer.songBpm / 60f)));
-        speed *= Time.deltaTime;
+        //speed = distance / (8f * (1f / (composer.songBpm / 60f)));
+        //speed *= Time.deltaTime;
         playerStart = player.transform.position;
     }
 

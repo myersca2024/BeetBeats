@@ -24,7 +24,7 @@ public class NoteBehavior : MonoBehaviour
         {
             transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
         }
-        if (toBackpack)
+        if (toBackpack && backpackTarget != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, backpackTarget.position, toBackpackSpeed * Time.deltaTime);
             if (Vector3.Distance(transform.position, backpackTarget.position) <= 0.1f)

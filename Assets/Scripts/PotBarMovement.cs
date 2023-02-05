@@ -14,12 +14,14 @@ public class PotBarMovement : MonoBehaviour
 
     private void Start()
     {
-        float beatsPerSecond = composer.songBpm / 60f;
-        float speedPerMeasure = 360 / beatsPerSecond;
+        // float beatsPerSecond = composer.songBpm / 60f;
+        float speedPerMeasure = 150;
         speed = speedPerMeasure / pns.measuresPerRevolution;
+        /*
         float beatOffset = 360 / 4 / pns.measuresPerRevolution / 2;
         transform.position = Quaternion.Euler(new Vector3(0, 0, -beatOffset)) *
                 (transform.position - potCenter.transform.position) + potCenter.transform.position;
+        */
     }
 
     private void Update()

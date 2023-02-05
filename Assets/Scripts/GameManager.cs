@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public Composer composer;
     public INoteSpawner noteSpawner;
     public Countdown countdown;
-    public int score = 0;
+    public static int score = 0;
     public int missAmount = -1;
     public int tooEarlyAmount = 1;
     public int tooLateAmount = 1;
@@ -26,10 +26,6 @@ public class GameManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        score = 0;
-    }
 
     private void Update()
     {

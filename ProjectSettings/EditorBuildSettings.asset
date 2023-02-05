@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pot.unity
     guid: c772f28b65c65c24db02f61067eef5a7
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 6e6a1167d9145124d91fb11482637d9a
   m_configObjects: {}
