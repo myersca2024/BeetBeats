@@ -41,7 +41,7 @@ public class Composer : MonoBehaviour
 
     private void Update()
     {
-        if (hasStarted)
+        if (hasStarted && musicSource.isPlaying)
         {
             //determine how many seconds since the song started
             songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
@@ -49,7 +49,7 @@ public class Composer : MonoBehaviour
             //determine how many beats since the song started
             songPositionInBeats = songPosition / secPerBeat;
 
-            if (!musicSource.isPlaying)
+            if (!musicSource.isPlaying && musicSource.clip.length - musicSource.time <= 1f)
             {
                 finish.SetActive(true);
             }

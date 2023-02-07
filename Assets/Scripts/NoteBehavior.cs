@@ -9,9 +9,9 @@ public class NoteBehavior : MonoBehaviour
     public float speed;
     public float toBackpackSpeed;
     public bool isMoving = false;
+    public bool toBackpack;
 
     private SpriteRenderer sr;
-    private bool toBackpack;
 
     private void Start()
     {

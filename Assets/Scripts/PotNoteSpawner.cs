@@ -74,7 +74,14 @@ public class PotNoteSpawner : MonoBehaviour, INoteSpawner
             {
                 foreach (NoteBehavior note in notesByMeasure[currentActiveMeasure - 2])
                 {
-                    if (note != null) { note.gameObject.SetActive(false); }
+                    if (note != null)
+                    {
+                        if (note.gameObject.activeSelf)
+                        {
+                            gm.Miss();
+                        }
+                        note.gameObject.SetActive(false);
+                    }
                 }
             }
             currentActiveMeasure = Mathf.Clamp(currentActiveMeasure + 1, 0, numMeasures - 1);
