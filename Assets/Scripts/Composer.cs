@@ -41,13 +41,16 @@ public class Composer : MonoBehaviour
 
     private void Update()
     {
-        if (hasStarted && musicSource.isPlaying)
+        if (hasStarted)
         {
-            //determine how many seconds since the song started
-            songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
+            if (musicSource.isPlaying)
+            {
+                //determine how many seconds since the song started
+                songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
 
-            //determine how many beats since the song started
-            songPositionInBeats = songPosition / secPerBeat;
+                //determine how many beats since the song started
+                songPositionInBeats = songPosition / secPerBeat;
+            }
 
             if (!musicSource.isPlaying && musicSource.clip.length - musicSource.time <= 1f)
             {

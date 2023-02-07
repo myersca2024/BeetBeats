@@ -385,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 1929798101}
     - target: {fileID: 5296660994480260391, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
       propertyPath: laneInput
-      value: 104
+      value: 103
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
@@ -579,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 1929798101}
     - target: {fileID: 5296660994480260391, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
       propertyPath: laneInput
-      value: 103
+      value: 104
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65948edd235c8204c9d7d5925cbe7335, type: 3}
